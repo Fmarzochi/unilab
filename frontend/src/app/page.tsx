@@ -6,13 +6,13 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="relative min-h-[calc(100vh-80px)] flex items-center bg-unilab-offWhite overflow-hidden">
-
-      {/* Elemento de design ao fundo (opcional, dá um toque moderno) */}
+      
+      {/* Elemento de design ao fundo */}
       <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-unilab-red/5 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="max-w-3xl">
-
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -50,13 +50,13 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Link
+            <Link 
               href="/exames"
               className="inline-flex justify-center items-center px-8 py-4 bg-unilab-red text-unilab-white rounded-lg font-semibold transition-all hover:bg-unilab-darkRed hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-unilab-red/20"
             >
               Agendar Exame
             </Link>
-            <Link
+            <Link 
               href="/banco-de-sangue"
               className="inline-flex justify-center items-center px-8 py-4 bg-unilab-white text-unilab-gray border border-unilab-gray/20 rounded-lg font-semibold transition-all hover:bg-gray-50 hover:border-unilab-gray/40 active:scale-[0.98]"
             >

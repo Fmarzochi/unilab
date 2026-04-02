@@ -140,7 +140,7 @@ export default function Patologia() {
               <div className="mb-2">
                 <h3 className="font-bold text-unilab-red mb-2 border-b border-unilab-red/10 pb-1 text-sm uppercase tracking-wider">Necropsia</h3>
                 <p className="text-sm text-unilab-gray/80 leading-relaxed">
-                  Exame macroscópico sistemático do cadáver para determinar a causa mortis e documentar lesões sistêmicas abrangentes.
+                  Exame macroscópico sistemático para determinar a causa mortis e documentar lesões sistêmicas abrangentes.
                 </p>
               </div>
             </div>

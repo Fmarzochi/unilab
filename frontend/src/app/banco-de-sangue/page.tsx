@@ -228,7 +228,6 @@ Já recebeu transfusão?: ${formData.transfusao}`;
               type="submit"
               className="mt-4 w-full bg-unilab-red text-white py-4 rounded-xl font-bold text-sm uppercase tracking-wide flex items-center justify-center gap-2 hover:bg-[#b31b20] hover:shadow-lg transition-all active:scale-95"
             >
-              <Send className="w-5 h-5" />
               Enviar Cadastro por E-mail
             </button>
 

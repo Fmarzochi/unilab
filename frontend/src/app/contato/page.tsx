@@ -61,7 +61,6 @@ export default function Contato() {
               rel="noopener noreferrer"
               className="mt-auto w-full bg-unilab-red text-white py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#b31b20] hover:shadow-lg transition-all active:scale-95"
             >
-              <Navigation className="w-5 h-5" />
               Traçar Rota no GPS
             </a>
           </motion.div>

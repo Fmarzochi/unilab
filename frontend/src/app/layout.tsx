@@ -12,6 +12,9 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Unilab - Laboratório Veterinário",
   description: "Laboratório Veterinário e Banco de Sangue Animal",
+  icons: {
+    icon: "/images/unilab.svg",
+  },
 };
 
 export default function RootLayout({

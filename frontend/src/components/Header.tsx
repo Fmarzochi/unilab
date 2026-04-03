@@ -32,14 +32,12 @@ export default function Header() {
     <>
       {/* Header com cor sólida para evitar renderização duplicada */}
       <header className="sticky top-0 z-40 w-full bg-unilab-white border-b border-unilab-gray/10 shadow-sm">
-        {/* Contêiner DESKTOP restaurado para manter a estrutura perfeita (1600px) */}
-        <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-24">
-          <div className="flex flex-nowrap items-center h-24 lg:h-32">
+        {/* Contêiner DESKTOP: Padding lateral reduzido (lg:px-8 xl:px-12) para dar mais espaço útil ao menu */}
+        <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-8 xl:px-12">
+          <div className="flex flex-nowrap items-center h-24 lg:h-28">
 
-            {/* === MOBILE: Logo + Texto === */}
+            {/* === MOBILE: Logo + Texto (100% INTOCADO) === */}
             <div className="lg:hidden flex items-center w-full relative">
-
-              {/* Logo travado firmemente à esquerda */}
               <Link href="/" className="flex-shrink-0 z-20">
                 <Image
                   src="/images/unilab.svg"
@@ -51,8 +49,6 @@ export default function Header() {
                 />
               </Link>
 
-              {/* Texto flutuando no centro, mas agora com ml-16 (e ml-24 em telas um pouco maiores)
-                  para empurrá-lo ainda mais para a direita e afastar do logo de forma segura. */}
               <div className="absolute left-0 right-0 flex flex-col justify-center items-center pointer-events-none z-10 ml-16 sm:ml-24">
                 <span className="text-2xl sm:text-3xl font-bold text-black leading-tight text-center">
                   Laboratório
@@ -61,28 +57,28 @@ export default function Header() {
                   Veterinário
                 </span>
               </div>
-
             </div>
 
-            {/* === DESKTOP: LOGO === */}
-            <Link href="/" className="hidden lg:flex items-center group flex-shrink-0 -ml-12 lg:-ml-24 xl:-ml-32 mr-16 lg:mr-32">
+            {/* === DESKTOP: LOGO (100% INTOCADO) === */}
+            <Link href="/" className="hidden lg:flex items-center group flex-shrink-0 mr-8 lg:mr-12">
               <Image
                 src="/images/unilab.svg"
                 alt="Unilab Laboratório Veterinário"
                 width={219}
                 height={150}
-                className="h-28 w-auto object-contain transition-transform group-hover:scale-105"
+                className="h-20 lg:h-24 w-auto object-contain transition-transform group-hover:scale-105"
                 priority
               />
             </Link>
 
             {/* === DESKTOP: NAVEGAÇÃO === */}
-            <nav className="hidden lg:flex items-center ml-auto gap-8 xl:gap-12">
+            {/* Gaps e fontes micro-reduzidos para que todas as 8 opções caibam sem estourar a borda da tela */}
+            <nav className="hidden lg:flex items-center ml-auto gap-3 lg:gap-4 xl:gap-6">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-xl xl:text-2xl font-semibold whitespace-nowrap transition-colors hover:text-unilab-red ${
+                  className={`text-sm xl:text-base font-semibold whitespace-nowrap transition-colors hover:text-unilab-red ${
                     pathname === link.href ? "text-unilab-red border-b-2 border-unilab-red pb-1" : "text-unilab-gray"
                   }`}
                 >

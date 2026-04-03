@@ -36,7 +36,7 @@ export default function Header() {
         <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-8 xl:px-12">
           <div className="flex flex-nowrap items-center h-24 lg:h-28">
 
-            {/* === MOBILE: Logo + Texto (100% INTOCADO) === */}
+            {/* === MOBILE: Logo + Texto === */}
             <div className="lg:hidden flex items-center w-full relative">
               <Link href="/" className="flex-shrink-0 z-20">
                 <Image
@@ -90,8 +90,8 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Botão Flutuante Mobile */}
-      <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[60]">
+      {/* Botão Flutuante Mobile - AJUSTADO PARA bottom-14 */}
+      <div className="lg:hidden fixed bottom-14 left-1/2 -translate-x-1/2 z-[60]">
         <button
           onClick={() => setIsMobileMenuOpen(true)}
           className="flex items-center gap-2 bg-unilab-gray text-white px-6 py-3.5 rounded-full shadow-2xl shadow-unilab-gray/40 border border-white/10 transition-transform active:scale-95"

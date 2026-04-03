@@ -112,6 +112,8 @@ npm install
 npm run dev
 A aplicação estará disponível em http://localhost:3000.
 
+Ou acesse https://unilab-nu.vercel.app
+
 Estrutura de Rotas
 Rota	Descrição
 /	Landing page principal

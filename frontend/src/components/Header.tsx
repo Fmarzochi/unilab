@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   Menu, X, Home, Info, Monitor, Microscope,
@@ -31,23 +32,57 @@ export default function Header() {
     <>
       {/* Header com cor sólida para evitar renderização duplicada */}
       <header className="sticky top-0 z-40 w-full bg-unilab-white border-b border-unilab-gray/10 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-8 h-8 rounded-full bg-unilab-white border border-unilab-red flex items-center justify-center group-hover:bg-unilab-red/5 transition-colors flex-shrink-0">
-                <Droplet className="w-5 h-5 text-unilab-red" fill="currentColor" strokeWidth={1} />
+        {/* Contêiner DESKTOP restaurado para manter a estrutura perfeita (1600px) */}
+        <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-24">
+          <div className="flex flex-nowrap items-center h-24 lg:h-32">
+
+            {/* === MOBILE: Logo + Texto === */}
+            <div className="lg:hidden flex items-center w-full relative">
+
+              {/* Logo travado firmemente à esquerda */}
+              <Link href="/" className="flex-shrink-0 z-20">
+                <Image
+                  src="/images/unilab.svg"
+                  alt="Unilab Laboratório Veterinário"
+                  width={219}
+                  height={150}
+                  className="h-16 sm:h-20 w-auto object-contain transition-transform group-hover:scale-105"
+                  priority
+                />
+              </Link>
+
+              {/* Texto flutuando no centro, mas agora com ml-16 (e ml-24 em telas um pouco maiores)
+                  para empurrá-lo ainda mais para a direita e afastar do logo de forma segura. */}
+              <div className="absolute left-0 right-0 flex flex-col justify-center items-center pointer-events-none z-10 ml-16 sm:ml-24">
+                <span className="text-2xl sm:text-3xl font-bold text-black leading-tight text-center">
+                  Laboratório
+                </span>
+                <span className="text-2xl sm:text-3xl font-semibold text-unilab-red leading-tight text-center">
+                  Veterinário
+                </span>
               </div>
-              <span className="text-2xl font-bold text-unilab-gray tracking-tight">
-                UNILAB
-              </span>
+
+            </div>
+
+            {/* === DESKTOP: LOGO === */}
+            <Link href="/" className="hidden lg:flex items-center group flex-shrink-0 -ml-12 lg:-ml-24 xl:-ml-32 mr-16 lg:mr-32">
+              <Image
+                src="/images/unilab.svg"
+                alt="Unilab Laboratório Veterinário"
+                width={219}
+                height={150}
+                className="h-28 w-auto object-contain transition-transform group-hover:scale-105"
+                priority
+              />
             </Link>
 
-            <nav className="hidden lg:flex gap-8">
+            {/* === DESKTOP: NAVEGAÇÃO === */}
+            <nav className="hidden lg:flex items-center ml-auto gap-8 xl:gap-12">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-sm font-semibold transition-colors hover:text-unilab-red ${
+                  className={`text-xl xl:text-2xl font-semibold whitespace-nowrap transition-colors hover:text-unilab-red ${
                     pathname === link.href ? "text-unilab-red border-b-2 border-unilab-red pb-1" : "text-unilab-gray"
                   }`}
                 >
@@ -59,7 +94,7 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Botão Flutuante */}
+      {/* Botão Flutuante Mobile */}
       <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[60]">
         <button
           onClick={() => setIsMobileMenuOpen(true)}
@@ -70,7 +105,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Fundo Escuro (Overlay) com cor sólida transparente */}
+      {/* Fundo Escuro Mobile */}
       <div
         className={`lg:hidden fixed inset-0 bg-unilab-gray/80 z-50 transition-opacity duration-300 ${
           isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
@@ -78,7 +113,7 @@ export default function Header() {
         onClick={() => setIsMobileMenuOpen(false)}
       />
 
-      {/* Aba Inferior (Bottom Sheet) */}
+      {/* Aba Inferior Mobile */}
       <div
         className={`lg:hidden fixed bottom-0 left-0 right-0 bg-unilab-white rounded-t-[2rem] z-[55] p-6 shadow-[0_-10px_40px_rgba(0,0,0,0.1)] flex flex-col max-h-[85vh] transition-transform duration-300 ease-out transform ${
           isMobileMenuOpen ? "translate-y-0" : "translate-y-full"
@@ -109,7 +144,7 @@ export default function Header() {
                 }`}
               >
                 <Icon className={`w-6 h-6 ${isActive ? "text-unilab-red" : "text-unilab-gray/40"}`} />
-                <span className="text-base">{link.name}</span>
+                <span className="text-xl">{link.name}</span>
               </Link>
             );
           })}

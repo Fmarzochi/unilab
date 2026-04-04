@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, MessageCircle, Map, Droplet, Clock } from "lucide-react";
+import Image from "next/image";
 
 export default function Contato() {
   return (
@@ -34,12 +35,35 @@ export default function Contato() {
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="bg-unilab-white p-5 sm:p-8 rounded-2xl border border-unilab-gray/10 shadow-lg flex flex-col h-full"
           >
-            <div className="flex-1 bg-unilab-offWhite rounded-xl border border-unilab-gray/10 flex flex-col items-center justify-center p-6 sm:p-8 mb-6 text-center group">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md mb-4 text-unilab-red group-hover:scale-110 transition-transform">
-                <Map className="w-8 h-8" />
+            {/* QUADRO INTERNO COM MAPA INTEGRADO */}
+            <div className="flex-1 bg-unilab-offWhite rounded-xl border border-unilab-gray/10 flex flex-col overflow-hidden mb-6 group">
+              {/* Parte Superior: Texto e Ícone */}
+              <div className="p-6 flex flex-col items-center justify-center text-center">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md mb-4 text-unilab-red group-hover:scale-110 transition-transform">
+                  <Map className="w-8 h-8" />
+                </div>
+                <h3 className="font-bold text-unilab-gray text-lg mb-1">Unilab Americana</h3>
+                <p className="text-unilab-gray/70 text-sm">Laboratório Veterinário</p>
               </div>
-              <h3 className="font-bold text-unilab-gray text-lg mb-2">Unilab Americana</h3>
-              <p className="text-unilab-gray/70 text-sm">Laboratório Veterinário</p>
+
+              {/* Parte Inferior: O Mapa dentro do quadro */}
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=Rua+Itapemirim+732+Americana+SP"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative block w-full h-40 sm:h-48 border-t border-unilab-gray/10 overflow-hidden group/map"
+              >
+                <div className="absolute inset-0 bg-unilab-red/5 opacity-0 group-hover/map:opacity-100 transition-opacity z-10"></div>
+                <Image
+                  src="/images/mapa-unilab.jpg"
+                  alt="Mapa de localização Unilab Americana"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover/map:scale-110"
+                />
+                <div className="absolute bottom-3 right-3 bg-white/90 px-2 py-1 rounded text-[10px] font-bold text-unilab-red shadow-sm z-20">
+                  CLIQUE PARA VER ROTA
+                </div>
+              </a>
             </div>
 
             <div className="flex items-start gap-4 mb-6">
@@ -54,9 +78,9 @@ export default function Contato() {
               </div>
             </div>
 
-            {/* Smart Link: Traçar Rota via GPS */}
+            {/* Smart Link: Traçar Rota via GPS - Mantendo sua cor personalizada */}
             <a
-              href="https://www.google.com/maps/dir/?api=1&destination=Rua+Itapemirim,+732+-+Jardim+Ipiranga,+Americana+-+SP,+13468-480"
+              href="https://www.google.com/maps/dir/?api=1&destination=Rua+Itapemirim+732+Americana+SP"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-auto w-full bg-unilab-red text-white py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#b31b20] hover:shadow-lg transition-all active:scale-95"
@@ -72,11 +96,9 @@ export default function Contato() {
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
             className="flex flex-col gap-3 sm:gap-4 justify-center"
           >
-
-            {/* CARTÃO DE EMERGÊNCIA: PLANTÃO BANCO DE SANGUE */}
+            {/* PLANTÃO BANCO DE SANGUE */}
             <div className="bg-unilab-white p-4 sm:p-5 rounded-2xl border border-unilab-red/30 shadow-lg shadow-unilab-red/5 flex flex-col gap-3 relative overflow-hidden group">
               <div className="absolute top-0 left-0 w-1 h-full bg-unilab-red"></div>
-
               <div className="flex items-center gap-3 mb-1">
                 <div className="w-10 h-10 rounded-full bg-unilab-red/10 flex items-center justify-center text-unilab-red flex-shrink-0 group-hover:scale-110 transition-transform">
                   <Droplet className="w-5 h-5" fill="currentColor" strokeWidth={1} />
@@ -88,27 +110,24 @@ export default function Contato() {
               </div>
 
               <div className="flex flex-col gap-2">
-                {/* Número 1 */}
                 <div className="flex items-center justify-between bg-unilab-offWhite p-2 sm:p-2.5 rounded-xl border border-unilab-gray/10 hover:border-unilab-red/20 transition-colors">
                   <span className="text-sm sm:text-base font-bold text-unilab-gray pl-2">(19) 99115-0546</span>
                   <div className="flex gap-2">
-                    <a href="tel:+5519991150546" title="Ligar agora" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-unilab-red hover:bg-unilab-red hover:text-white transition-colors border border-unilab-gray/10 shadow-sm active:scale-95">
+                    <a href="tel:+5519991150546" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-unilab-red hover:bg-unilab-red hover:text-white transition-colors border border-unilab-gray/10 active:scale-95">
                       <Phone className="w-4 h-4" />
                     </a>
-                    <a href="https://wa.me/5519991150546?text=Olá, preciso de atendimento no plantão do Banco de Sangue." target="_blank" rel="noopener noreferrer" title="Chamar no WhatsApp" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors border border-unilab-gray/10 shadow-sm active:scale-95">
+                    <a href="https://wa.me/5519991150546" target="_blank" rel="noopener noreferrer" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors border border-unilab-gray/10 active:scale-95">
                       <MessageCircle className="w-4 h-4" />
                     </a>
                   </div>
                 </div>
-
-                {/* Número 2 */}
                 <div className="flex items-center justify-between bg-unilab-offWhite p-2 sm:p-2.5 rounded-xl border border-unilab-gray/10 hover:border-unilab-red/20 transition-colors">
                   <span className="text-sm sm:text-base font-bold text-unilab-gray pl-2">(19) 99866-5848</span>
                   <div className="flex gap-2">
-                    <a href="tel:+5519998665848" title="Ligar agora" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-unilab-red hover:bg-unilab-red hover:text-white transition-colors border border-unilab-gray/10 shadow-sm active:scale-95">
+                    <a href="tel:+5519998665848" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-unilab-red hover:bg-unilab-red hover:text-white transition-colors border border-unilab-gray/10 active:scale-95">
                       <Phone className="w-4 h-4" />
                     </a>
-                    <a href="https://wa.me/5519998665848?text=Olá, preciso de atendimento no plantão do Banco de Sangue." target="_blank" rel="noopener noreferrer" title="Chamar no WhatsApp" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors border border-unilab-gray/10 shadow-sm active:scale-95">
+                    <a href="https://wa.me/5519998665848" target="_blank" rel="noopener noreferrer" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors border border-unilab-gray/10 active:scale-95">
                       <MessageCircle className="w-4 h-4" />
                     </a>
                   </div>
@@ -116,9 +135,8 @@ export default function Contato() {
               </div>
             </div>
 
-            {/* NOVO CARTÃO UNIFICADO: ATENDIMENTO COMERCIAL */}
+            {/* ATENDIMENTO COMERCIAL */}
             <div className="bg-unilab-white p-4 sm:p-5 rounded-2xl border border-unilab-gray/10 shadow-md flex flex-col gap-3 group">
-
               <div className="flex items-center gap-3 mb-1">
                 <div className="w-10 h-10 rounded-full bg-unilab-offWhite flex items-center justify-center text-unilab-gray group-hover:scale-110 transition-transform">
                   <Clock className="w-5 h-5" />
@@ -128,21 +146,20 @@ export default function Contato() {
                   <p className="text-unilab-gray/70 text-xs sm:text-sm">Seg a Sex (08h30 - 18h) | Sáb (08h30 - 13h)</p>
                 </div>
               </div>
-
               <div className="flex items-center justify-between bg-unilab-offWhite p-2 sm:p-2.5 rounded-xl border border-unilab-gray/10 hover:border-unilab-gray/30 transition-colors">
                 <span className="text-sm sm:text-base font-bold text-unilab-gray pl-2">(19) 3406-1779</span>
                 <div className="flex gap-2">
-                  <a href="tel:+551934061779" title="Ligar agora" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-unilab-red hover:bg-unilab-red hover:text-white transition-colors border border-unilab-gray/10 shadow-sm active:scale-95">
+                  <a href="tel:+551934061779" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-unilab-red hover:bg-unilab-red hover:text-white transition-colors border border-unilab-gray/10 active:scale-95">
                     <Phone className="w-4 h-4" />
                   </a>
-                  <a href="https://wa.me/551934061779?text=Olá,%20Unilab!%20Gostaria%20de%20mais%20informações." target="_blank" rel="noopener noreferrer" title="Chamar no WhatsApp" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors border border-unilab-gray/10 shadow-sm active:scale-95">
+                  <a href="https://wa.me/551934061779" target="_blank" rel="noopener noreferrer" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors border border-unilab-gray/10 active:scale-95">
                     <MessageCircle className="w-4 h-4" />
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* Smart Link: E-mail */}
+            {/* E-MAIL */}
             <a
               href="mailto:unilabvet@outlook.com"
               className="group flex items-center gap-4 bg-unilab-white p-3.5 sm:p-5 rounded-2xl border border-unilab-gray/10 hover:border-unilab-red/20 hover:shadow-lg transition-all"
@@ -155,9 +172,7 @@ export default function Contato() {
                 <p className="text-unilab-gray/70 mt-0.5 text-sm">unilabvet@outlook.com</p>
               </div>
             </a>
-
           </motion.div>
-
         </div>
       </div>
     </div>

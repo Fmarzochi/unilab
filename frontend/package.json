@@ -1,6 +1,7 @@
 {
   "name": "unilab-frontend",
   "version": "1.0.0",
+  "author": "Felipe Marzochi <fmarzochi@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "next dev",

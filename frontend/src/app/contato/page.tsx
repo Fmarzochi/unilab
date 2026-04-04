@@ -117,7 +117,7 @@ export default function Contato() {
                     <a href="tel:+5519991150546" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-unilab-red hover:bg-unilab-red hover:text-white transition-colors border border-unilab-gray/10 active:scale-95">
                       <Phone className="w-4 h-4" />
                     </a>
-                    <a href="https://wa.me/5519991150546" target="_blank" rel="noopener noreferrer" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors border border-unilab-gray/10 active:scale-95">
+                    <a href="https://wa.me/5519991150546?text=Olá,%20eu%20vim%20do%20site%20oficial%20da%20Unilab%20e%20preciso%20de%20uma%20bolsa%20de%20sangue%20como%20proceder.%20Poderiam%20me%20ajudar?" target="_blank" rel="noopener noreferrer" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors border border-unilab-gray/10 active:scale-95">
                       <MessageCircle className="w-4 h-4" />
                     </a>
                   </div>
@@ -128,7 +128,7 @@ export default function Contato() {
                     <a href="tel:+5519998665848" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-unilab-red hover:bg-unilab-red hover:text-white transition-colors border border-unilab-gray/10 active:scale-95">
                       <Phone className="w-4 h-4" />
                     </a>
-                    <a href="https://wa.me/5519998665848" target="_blank" rel="noopener noreferrer" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors border border-unilab-gray/10 active:scale-95">
+                    <a href="https://wa.me/5519998665848?text=Olá,%20eu%20vim%20do%20site%20oficial%20da%20Unilab%20e%20preciso%20de%20uma%20bolsa%20de%20sangue%20como%20proceder.%20Poderiam%20me%20ajudar?" target="_blank" rel="noopener noreferrer" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors border border-unilab-gray/10 active:scale-95">
                       <MessageCircle className="w-4 h-4" />
                     </a>
                   </div>
@@ -153,7 +153,7 @@ export default function Contato() {
                   <a href="tel:+551934061779" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-unilab-red hover:bg-unilab-red hover:text-white transition-colors border border-unilab-gray/10 active:scale-95">
                     <Phone className="w-4 h-4" />
                   </a>
-                  <a href="https://wa.me/551934061779" target="_blank" rel="noopener noreferrer" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors border border-unilab-gray/10 active:scale-95">
+                  <a href="https://wa.me/551934061779?text=Olá,%20eu%20vim%20do%20site%20oficial%20da%20Unilab%20e%20preciso%20de%20ajuda%20como%20proceder?" target="_blank" rel="noopener noreferrer" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors border border-unilab-gray/10 active:scale-95">
                     <MessageCircle className="w-4 h-4" />
                   </a>
                 </div>

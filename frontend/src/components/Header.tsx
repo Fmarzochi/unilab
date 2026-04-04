@@ -72,7 +72,6 @@ export default function Header() {
             </Link>
 
             {/* === DESKTOP: NAVEGAÇÃO === */}
-            {/* Gaps e fontes micro-reduzidos para que todas as 8 opções caibam sem estourar a borda da tela */}
             <nav className="hidden lg:flex items-center ml-auto gap-3 lg:gap-4 xl:gap-6">
               {navLinks.map((link) => (
                 <Link
@@ -90,8 +89,10 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Botão Flutuante Mobile - AJUSTADO PARA bottom-14 */}
-      <div className="lg:hidden fixed bottom-14 left-1/2 -translate-x-1/2 z-[60]">
+      {/* Botão Flutuante Mobile - CORRIGIDO PARA OCULTAR AO ABRIR O MENU */}
+      <div className={`lg:hidden fixed bottom-14 left-1/2 -translate-x-1/2 z-[60] transition-all duration-300 ${
+        isMobileMenuOpen ? "opacity-0 pointer-events-none translate-y-10" : "opacity-100 translate-y-0"
+      }`}>
         <button
           onClick={() => setIsMobileMenuOpen(true)}
           className="flex items-center gap-2 bg-unilab-gray text-white px-6 py-3.5 rounded-full shadow-2xl shadow-unilab-gray/40 border border-white/10 transition-transform active:scale-95"

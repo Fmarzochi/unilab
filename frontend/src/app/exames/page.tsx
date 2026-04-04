@@ -11,7 +11,9 @@ export default function Exames() {
     especie: "",
     sexo: "",
     raca: "",
+    peso: "",
     castrado: "",
+    possuiRequisicao: "",
     sintomas: "",
     veterinario: "",
     crmv: "",
@@ -26,13 +28,18 @@ export default function Exames() {
     e.preventDefault();
 
     // Validação básica para garantir que as pílulas foram selecionadas
-    if (!formData.especie || !formData.sexo || !formData.castrado) {
-      alert("Por favor, preencha todos os campos de seleção (Espécie, Sexo e Castrado).");
+    if (!formData.especie || !formData.sexo || !formData.castrado || !formData.possuiRequisicao) {
+      alert("Por favor, preencha todos os campos de seleção (Espécie, Sexo, Castrado e Requisição).");
       return;
     }
 
-    // Formatação da mensagem para o WhatsApp
-    const texto = `*OLÁ, EU GOSTARIA DE AGENDAR UM EXAME:*%0A%0A*Responsável:* ${formData.responsavel}%0A*Paciente:* ${formData.paciente}%0A*Espécie:* ${formData.especie}%0A*Sexo:* ${formData.sexo}%0A*Raça:* ${formData.raca}%0A*Castrado:* ${formData.castrado}%0A*Sintomas:* ${formData.sintomas}%0A*Veterinário Solicitante:* ${formData.veterinario}%0A*CRMV:* ${formData.crmv}%0A*Clínica:* ${formData.clinica}`;
+    // Lógica inteligente da mensagem de requisição
+    const textoRequisicao = formData.possuiRequisicao === "Sim"
+      ? "*Requisição:* O cliente informou que POSSUI o pedido médico e irá anexar o arquivo (PDF/Imagem) a seguir."
+      : "*Requisição:* O cliente informou que NÃO possui o pedido médico.";
+
+    // Formatação da mensagem para o WhatsApp com os novos campos
+    const texto = `*OLÁ, EU GOSTARIA DE AGENDAR UM EXAME:*%0A%0A*Responsável:* ${formData.responsavel}%0A*Paciente:* ${formData.paciente}%0A*Espécie:* ${formData.especie}%0A*Raça:* ${formData.raca}%0A*Peso:* ${formData.peso} kg%0A*Sexo:* ${formData.sexo}%0A*Castrado:* ${formData.castrado}%0A*Sintomas:* ${formData.sintomas}%0A*Veterinário Solicitante:* ${formData.veterinario}%0A*CRMV:* ${formData.crmv}%0A*Clínica:* ${formData.clinica}%0A%0A${textoRequisicao}`;
 
     const numeroWhatsApp = "551934061779";
     const url = `https://wa.me/${numeroWhatsApp}?text=${texto}`;
@@ -139,7 +146,7 @@ export default function Exames() {
               </div>
             </div>
 
-            {/* Linha 3: Raça e Castrado */}
+            {/* Linha 3: Raça e Peso (Organização limpa e inteligente) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="raca" className="text-sm font-bold text-unilab-gray">Raça</label>
@@ -153,6 +160,22 @@ export default function Exames() {
                   className="w-full px-4 py-2.5 rounded-xl border border-unilab-gray/20 bg-unilab-offWhite focus:bg-white focus:outline-none focus:border-unilab-red focus:ring-1 focus:ring-unilab-red transition-all text-sm text-unilab-gray"
                 />
               </div>
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="peso" className="text-sm font-bold text-unilab-gray">Peso (kg)</label>
+                <input
+                  id="peso"
+                  type="text"
+                  required
+                  placeholder="Ex: 15.5"
+                  value={formData.peso}
+                  onChange={(e) => setFormData({ ...formData, peso: e.target.value })}
+                  className="w-full px-4 py-2.5 rounded-xl border border-unilab-gray/20 bg-unilab-offWhite focus:bg-white focus:outline-none focus:border-unilab-red focus:ring-1 focus:ring-unilab-red transition-all text-sm text-unilab-gray"
+                />
+              </div>
+            </div>
+
+            {/* Linha 4: Castrado e Requisição Médica (Pílulas visuais) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div className="flex flex-col gap-2">
                 <span className="text-sm font-bold text-unilab-gray">Castrado?</span>
                 <div className="flex gap-2">
@@ -172,9 +195,28 @@ export default function Exames() {
                   ))}
                 </div>
               </div>
+              <div className="flex flex-col gap-2">
+                <span className="text-sm font-bold text-unilab-gray">Possui requisição médica?</span>
+                <div className="flex gap-2">
+                  {["Sim", "Não"].map((opcao) => (
+                    <button
+                      key={opcao}
+                      type="button"
+                      onClick={() => handlePillClick("possuiRequisicao", opcao)}
+                      className={`flex-1 py-2 rounded-xl text-sm font-semibold transition-all border ${
+                        formData.possuiRequisicao === opcao
+                          ? "bg-unilab-gray text-white border-unilab-gray shadow-md"
+                          : "bg-unilab-offWhite text-unilab-gray/70 border-unilab-gray/10 hover:bg-unilab-gray/5"
+                      }`}
+                    >
+                      {opcao}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            {/* Linha 4: Sintomas */}
+            {/* Linha 5: Sintomas */}
             <div className="flex flex-col gap-1.5">
               <div className="flex justify-between items-end">
                 <label htmlFor="sintomas" className="text-sm font-bold text-unilab-gray">Descreva os sintomas brevemente</label>
@@ -194,7 +236,7 @@ export default function Exames() {
               />
             </div>
 
-            {/* Linha 5: Veterinário e CRMV */}
+            {/* Linha 6: Veterinário e CRMV */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="veterinario" className="text-sm font-bold text-unilab-gray">Veterinário Solicitante</label>
@@ -222,7 +264,7 @@ export default function Exames() {
               </div>
             </div>
 
-            {/* Linha 6: Clínica */}
+            {/* Linha 7: Clínica */}
             <div className="flex flex-col gap-1.5">
               <label htmlFor="clinica" className="text-sm font-bold text-unilab-gray">Clínica Veterinária</label>
               <input

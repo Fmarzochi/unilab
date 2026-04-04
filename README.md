@@ -133,4 +133,7 @@ Tailwind CSS + Variáveis Estritas: O design system foi travado dentro do tailwi
 
 Framer Motion: Aplicado em componentes de texto e modais para criar uma percepção de valor (Premium/Tech) na interface, guiando o olhar do usuário sem comprometer a performance.
 
+Ou clica aqui https://unilab-nu.vercel.app/
+
 Desenvolvido por Felipe Marzochi©
+

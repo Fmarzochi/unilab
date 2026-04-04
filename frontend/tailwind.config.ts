@@ -9,8 +9,8 @@ const config: Config = {
     extend: {
       colors: {
         unilab: {
-          red: "#D32F2F",       // Vermelho principal para botões e chamadas de ação
-          darkRed: "#B71C1C",   // Vermelho escuro para efeitos de interação (hover)
+          red: "#9B0000",       // Vermelho escuro oficial da marca (extraído do print)
+          darkRed: "#6A0000",   // Um tom ainda mais escuro para os efeitos de interação (hover)
           white: "#FFFFFF",     // Branco puro para o minimalismo (regra do 80/20)
           offWhite: "#F8F9FA",  // Gelo muito sutil para o fundo, evitando cansar a vista
           gray: "#333333",      // Cinza chumbo elegante para os textos

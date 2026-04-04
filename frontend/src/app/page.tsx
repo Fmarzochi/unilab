@@ -57,9 +57,9 @@ export default function Home() {
               Agendar Exame
             </Link>
 
-            {/* NOVO BOTÃO: Resultado de Exames */}
+            {/* BOTÃO CORRIGIDO: Link apontando para a nova página de Resultados */}
             <Link
-              href="#"
+              href="/resultados"
               className="inline-flex justify-center items-center px-8 py-4 bg-unilab-white text-unilab-gray border border-unilab-gray/20 rounded-lg font-semibold transition-all hover:bg-gray-50 hover:border-unilab-gray/40 active:scale-[0.98]"
             >
               Resultado de Exames

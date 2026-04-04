@@ -26,70 +26,71 @@ export default function Contato() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
 
           {/* Coluna Esquerda: Mapa e Endereço */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="bg-unilab-white p-5 sm:p-8 rounded-2xl border border-unilab-gray/10 shadow-lg flex flex-col h-full"
+            className="bg-unilab-white p-4 sm:p-5 rounded-2xl border border-unilab-gray/10 shadow-lg flex flex-col h-full"
           >
-            {/* QUADRO INTERNO COM MAPA INTEGRADO */}
-            <div className="flex-1 bg-unilab-offWhite rounded-xl border border-unilab-gray/10 flex flex-col overflow-hidden mb-6 group">
-              {/* Parte Superior: Texto e Ícone */}
-              <div className="p-6 flex flex-col items-center justify-center text-center">
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md mb-4 text-unilab-red group-hover:scale-110 transition-transform">
-                  <Map className="w-8 h-8" />
-                </div>
-                <h3 className="font-bold text-unilab-gray text-lg mb-1">Unilab Americana</h3>
-                <p className="text-unilab-gray/70 text-sm">Laboratório Veterinário</p>
-              </div>
-
-              {/* Parte Inferior: O Mapa dentro do quadro */}
+            {/* QUADRO INTERNO COM MAPA INTEGRADO E HIPERLINK */}
+            <div className="flex-1 bg-unilab-offWhite rounded-xl border border-unilab-gray/10 flex flex-col overflow-hidden mb-4 group">
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=Rua+Itapemirim+732+Americana+SP"
+                href="https://www.google.com/maps/dir/?api=1&destination=Rua+Itapemirim,+732+-+Jardim+Ipiranga,+Americana+-+SP,+13468-480"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative block w-full h-40 sm:h-48 border-t border-unilab-gray/10 overflow-hidden group/map"
+                className="flex flex-col h-full"
               >
-                <div className="absolute inset-0 bg-unilab-red/5 opacity-0 group-hover/map:opacity-100 transition-opacity z-10"></div>
-                <Image
-                  src="/images/mapa-unilab.jpg"
-                  alt="Mapa de localização Unilab Americana"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover/map:scale-110"
-                />
-                <div className="absolute bottom-3 right-3 bg-white/90 px-2 py-1 rounded text-[10px] font-bold text-unilab-red shadow-sm z-20">
-                  CLIQUE PARA VER ROTA
+                {/* Parte Superior: Texto e Ícone */}
+                <div className="p-4 flex flex-col items-center justify-center text-center">
+                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md mb-3 text-unilab-red group-hover:scale-110 transition-transform">
+                    <Map className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-bold text-unilab-gray text-base mb-0.5">Unilab Americana</h3>
+                  <p className="text-unilab-gray/70 text-xs font-medium">Laboratório Veterinário</p>
+                </div>
+
+                {/* Parte Inferior: O Mapa dentro do quadro com efeito hover */}
+                <div className="relative w-full h-32 sm:h-40 border-t border-unilab-gray/10 overflow-hidden">
+                  <div className="absolute inset-0 bg-unilab-red/5 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+                  <Image
+                    src="/images/mapa-unilab.jpg"
+                    alt="Mapa de localização Unilab Americana"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute bottom-2 right-2 bg-white/90 px-2 py-1 rounded text-[9px] font-bold text-unilab-red shadow-sm z-20">
+                    VER ROTA NO MAPA
+                  </div>
                 </div>
               </a>
             </div>
 
-            <div className="flex items-start gap-4 mb-6">
-              <MapPin className="w-6 h-6 text-unilab-red flex-shrink-0 mt-1" />
+            <div className="flex items-start gap-3 mb-4 px-1">
+              <MapPin className="w-5 h-5 text-unilab-red flex-shrink-0 mt-1" />
               <div>
-                <p className="font-bold text-unilab-gray text-lg">Nosso Endereço</p>
-                <p className="text-unilab-gray/80 leading-relaxed mt-1">
+                <p className="font-bold text-unilab-gray text-base">Nosso Endereço</p>
+                <p className="text-unilab-gray/80 text-sm leading-relaxed mt-0.5">
                   Rua Itapemirim, 732<br />
-                  Jardim Ipiranga - 13468-480<br />
-                  Americana - SP
+                  Jardim Ipiranga - Americana/SP
                 </p>
               </div>
             </div>
 
-            {/* Smart Link: Traçar Rota via GPS - Mantendo sua cor personalizada */}
+            {/* Smart Link: Traçar Rota via GPS - Link e Cor Preservados */}
             <a
-              href="https://www.google.com/maps/dir/?api=1&destination=Rua+Itapemirim+732+Americana+SP"
+              href="https://www.google.com/maps/dir/?api=1&destination=Rua+Itapemirim,+732+-+Jardim+Ipiranga,+Americana+-+SP,+13468-480"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-auto w-full bg-unilab-red text-white py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#b31b20] hover:shadow-lg transition-all active:scale-95"
+              className="mt-auto w-full bg-unilab-red text-white py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:bg-[#b31b20] hover:shadow-lg transition-all active:scale-95"
             >
               Traçar Rota no GPS
             </a>
           </motion.div>
 
-          {/* Coluna Direita: Cartões de Contato */}
+          {/* Coluna Direita: Cartões de Contato (IGUAIS AO ORIGINAL) */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}

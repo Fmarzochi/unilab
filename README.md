@@ -135,5 +135,9 @@ Framer Motion: Aplicado em componentes de texto e modais para criar uma percepç
 
 Ou clica aqui https://unilab-nu.vercel.app/
 
+<<<<<<< HEAD
 Desenvolvido por Felipe Marzochi©
 
+=======
+Desenvolvido por Felipe Marzochi©
+>>>>>>> 9490114 (Atualizando o README)

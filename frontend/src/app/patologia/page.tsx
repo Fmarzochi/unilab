@@ -1,152 +1,165 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Microscope, TestTube2, Dna } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { TestTube2, Droplet, FlaskConical, Stethoscope, FileText, Bug, Microscope, Scissors, Dna, Activity, Syringe, Search, ChevronDown } from "lucide-react";
 
-export default function Patologia() {
+// Definição dos Exames Categorizados
+const examesData = [
+  {
+    categoria: "Hematologia",
+    icone: Droplet,
+    exames: ["Hemograma completo", "Hemograma + pesquisa de hematozoários", "Contagem de plaquetas", "Contagem de reticulócitos"]
+  },
+  {
+    categoria: "Bioquímicos",
+    icone: FlaskConical,
+    exames: ["ALT", "AST", "Amilase", "Albumina", "Cálcio iônico", "Creatinina", "Cálcio total", "Colesterol", "Fósforo", "Frutosamina", "Fosfatase alcalina", "GGT", "Glicose", "Lipidograma", "Lipase", "Ureia", "Sódio e potássio", "Triglicérides", "UPC (relação proteína/creatinina urinária)"]
+  },
+  {
+    categoria: "Bioquímicos por Função",
+    icone: Stethoscope,
+    exames: ["Função renal", "Função hepática", "Função pancreática exócrina"]
+  },
+  {
+    categoria: "Urinálise",
+    icone: FileText,
+    exames: ["Urinálise"]
+  },
+  {
+    categoria: "Microbiologia",
+    icone: Bug,
+    exames: ["Cultura e antibiograma (9 antibióticos)", "Cultura e antibiograma (18 antibióticos)", "Cultura de fungos", "Escolha dos antibióticos (opcional)"]
+  },
+  {
+    categoria: "Parasitologia",
+    icone: Search,
+    exames: ["Coproparasitológico", "Pesquisa de ectoparasitas e exame micológico", "Pesquisa de Malassezia"]
+  },
+  {
+    categoria: "Citopatologia",
+    icone: Microscope,
+    exames: ["Análise citológica (CAAF)"]
+  },
+  {
+    categoria: "Histopatologia",
+    icone: Scissors,
+    exames: ["Biópsia", "Histopatológico de peça cirúrgica", "Histopatológico com margem cirúrgica"]
+  },
+  {
+    categoria: "Hormonais",
+    icone: Activity,
+    exames: ["Supressão à dexametasona", "Estimulação ao ACTH", "17-hidroxiprogesterona", "TSH", "T4 total", "T4 livre por diálise"]
+  },
+  {
+    categoria: "Biologia Molecular (PCR)",
+    icone: Dna,
+    exames: ["Cinomose", "Parvovirose", "Anaplasma platys", "Ehrlichia canis", "Babesia canis", "Painel anemia felino básico (FIV, FeLV e Micoplasma)", "Painel hemoparasitas canino", "Leptospirose", "Leishmaniose"]
+  },
+  {
+    categoria: "Sorologia / Imunologia",
+    icone: Syringe,
+    exames: ["ELISA quádruplo (teste rápido)", "Leishmaniose (RIFI + ELISA + diluição total)", "FIV / FeLV (teste rápido)", "Toxoplasmose"]
+  },
+  {
+    categoria: "Perfis (Combinações)",
+    icone: TestTube2,
+    exames: [
+      "Perfil triagem (Hemograma, ALT e Creatinina)",
+      "Perfil simples (Hemograma, função renal, ALT e FA)",
+      "Perfil pré-cirúrgico (Hemograma, função renal, ALT, FA e glicose)",
+      "Perfil clínico (Hemograma, função renal, função hepática, colesterol e triglicérides)",
+      "Perfil renal básico (Hemograma, função renal, urinálise, UPC e fósforo)",
+      "Perfil renal completo (Hemograma, função renal, urinálise, UPC, fósforo, cálcio, sódio e potássio)",
+      "Perfil eletrólitos (Cálcio, fósforo, sódio e potássio)"
+    ]
+  }
+];
+
+export default function Exames() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleAccordion = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
-    <div className="min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] bg-unilab-offWhite flex flex-col py-4 sm:py-6 lg:py-8 lg:overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-shrink-0">
+    <div className="min-h-[calc(100vh-80px)] bg-unilab-offWhite flex flex-col py-6 sm:py-8 lg:py-12 overflow-y-auto">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+
+        {/* Cabeçalho */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center max-w-3xl mx-auto mb-6 sm:mb-8"
+          className="text-center max-w-3xl mx-auto mb-8 sm:mb-12"
         >
           <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-unilab-red/10 text-unilab-red mb-4">
-            <Microscope className="w-6 h-6 sm:w-8 sm:h-8" />
+            <TestTube2 className="w-6 h-6 sm:w-8 sm:h-8" />
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-unilab-gray mb-3 tracking-tight">
-            Laboratório de <span className="text-unilab-red">Patologia</span>
+            Guia de <span className="text-unilab-red">Exames</span>
           </h1>
           <p className="text-base text-unilab-gray/80 leading-relaxed px-2">
-            Estrutura laboratorial completa garantindo diagnósticos precisos, desde exames de rotina até análises teciduais complexas.
+            Consulte nosso portfólio completo de exames laboratoriais. Clique nas categorias abaixo para visualizar os procedimentos disponíveis.
           </p>
         </motion.div>
-      </div>
 
-      <div className="flex-1 min-h-0 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-2 pb-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 h-full">
+        {/* Lista Acordeão */}
+        <div className="space-y-3 sm:space-y-4">
+          {examesData.map((secao, index) => {
+            const Icon = secao.icone;
+            const isOpen = openIndex === index;
 
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="bg-unilab-white rounded-2xl border border-unilab-gray/10 shadow-lg flex flex-col h-[500px] lg:h-full overflow-hidden group"
-          >
-            <div className="p-4 sm:p-6 border-b border-unilab-gray/10 flex items-center gap-4 flex-shrink-0 bg-unilab-white z-10 group-hover:border-unilab-red/20 transition-colors">
-              <div className="w-10 h-10 rounded-full bg-unilab-offWhite flex items-center justify-center text-unilab-red group-hover:bg-unilab-red group-hover:text-unilab-white transition-colors">
-                <TestTube2 className="w-5 h-5" />
-              </div>
-              <div>
-                <h2 className="text-lg sm:text-xl font-bold text-unilab-gray group-hover:text-unilab-red transition-colors">Patologia Clínica</h2>
-                <p className="text-xs text-unilab-gray/60">Monitoramento através de amostras biológicas</p>
-              </div>
-            </div>
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className={`bg-unilab-white border rounded-2xl overflow-hidden transition-all duration-300 ${isOpen ? 'border-unilab-red/30 shadow-md' : 'border-unilab-gray/10 shadow-sm hover:border-unilab-red/20'}`}
+              >
+                {/* Botão do Acordeão */}
+                <button
+                  onClick={() => toggleAccordion(index)}
+                  className="w-full px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between text-left focus:outline-none"
+                >
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${isOpen ? 'bg-unilab-red text-white' : 'bg-unilab-offWhite text-unilab-red'}`}>
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <span className="font-bold text-lg text-unilab-gray">{secao.categoria}</span>
+                  </div>
+                  <ChevronDown className={`w-5 h-5 text-unilab-gray/50 transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`} />
+                </button>
 
-            <div className="p-4 sm:p-6 overflow-y-auto flex-1 bg-unilab-white/50">
-              <div className="mb-6">
-                <h3 className="font-bold text-unilab-red mb-2 border-b border-unilab-red/10 pb-1 text-sm uppercase tracking-wider">Hematologia</h3>
-                <ul className="space-y-2 text-sm text-unilab-gray/80">
-                  <li><strong className="text-unilab-gray">Hemograma Completo:</strong> Inclui eritrograma, leucograma e plaquetograma.</li>
-                  <li><strong className="text-unilab-gray">Pesquisa de Hemoparasitas:</strong> Identificação de Ehrlichia, Babesia ou Anaplasma.</li>
-                  <li><strong className="text-unilab-gray">Contagem de Reticulócitos:</strong> Avaliação da resposta da medula óssea a anemias.</li>
-                  <li><strong className="text-unilab-gray">Fibrinogênio:</strong> Indicador de inflamação aguda.</li>
-                </ul>
-              </div>
-
-              <div className="mb-6">
-                <h3 className="font-bold text-unilab-red mb-2 border-b border-unilab-red/10 pb-1 text-sm uppercase tracking-wider">Bioquímica Sérica e Plasmática</h3>
-                <ul className="space-y-2 text-sm text-unilab-gray/80">
-                  <li><strong className="text-unilab-gray">Função Renal:</strong> Ureia e Creatinina.</li>
-                  <li><strong className="text-unilab-gray">Função Hepática:</strong> ALT, AST, FA, GGT, Bilirrubinas e Albumina.</li>
-                  <li><strong className="text-unilab-gray">Perfil Lipídico:</strong> Colesterol Total e Triglicerídeos.</li>
-                  <li><strong className="text-unilab-gray">Metabolismo de Carboidratos:</strong> Glicemia e Frutosamina.</li>
-                  <li><strong className="text-unilab-gray">Eletrólitos e Minerais:</strong> Cálcio, Fósforo, Magnésio, Sódio, Potássio e Cloretos.</li>
-                  <li><strong className="text-unilab-gray">Enzimas Pancreáticas:</strong> Amilase e Lipase.</li>
-                  <li><strong className="text-unilab-gray">Proteínas:</strong> Totais, Albumina e Globulina.</li>
-                </ul>
-              </div>
-
-              <div className="mb-6">
-                <h3 className="font-bold text-unilab-red mb-2 border-b border-unilab-red/10 pb-1 text-sm uppercase tracking-wider">Urinálise</h3>
-                <ul className="space-y-2 text-sm text-unilab-gray/80">
-                  <li><strong className="text-unilab-gray">Urina Tipo I (EAS):</strong> Avaliação física, química e sedimentoscopia.</li>
-                  <li><strong className="text-unilab-gray">Relação UPC:</strong> Medição precisa da perda de proteína pelo rim.</li>
-                </ul>
-              </div>
-
-              <div className="mb-6">
-                <h3 className="font-bold text-unilab-red mb-2 border-b border-unilab-red/10 pb-1 text-sm uppercase tracking-wider">Coprologia & Imunologia</h3>
-                <ul className="space-y-2 text-sm text-unilab-gray/80">
-                  <li><strong className="text-unilab-gray">Coproparasitológico:</strong> Pesquisa de helmintos e protozoários.</li>
-                  <li><strong className="text-unilab-gray">Sangue Oculto:</strong> Detecção de sangramentos gastrointestinais.</li>
-                  <li><strong className="text-unilab-gray">Testes Rápidos (SNAP):</strong> FIV/FeLV, Erliquiose, Cinomose, Leishmaniose e Parvovirose.</li>
-                </ul>
-              </div>
-
-              <div className="mb-2">
-                <h3 className="font-bold text-unilab-red mb-2 border-b border-unilab-red/10 pb-1 text-sm uppercase tracking-wider">Endocrinologia & Líquidos</h3>
-                <ul className="space-y-2 text-sm text-unilab-gray/80">
-                  <li><strong className="text-unilab-gray">Dosagens Hormonais:</strong> T4 Total/Livre, TSH, Cortisol e Progesterona.</li>
-                  <li><strong className="text-unilab-gray">Líquidos Cavitários:</strong> Análise de efusões e líquido cefalorraquidiano.</li>
-                </ul>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-            className="bg-unilab-white rounded-2xl border border-unilab-gray/10 shadow-lg flex flex-col h-[500px] lg:h-full overflow-hidden group"
-          >
-            <div className="p-4 sm:p-6 border-b border-unilab-gray/10 flex items-center gap-4 flex-shrink-0 bg-unilab-white z-10 group-hover:border-unilab-red/20 transition-colors">
-              <div className="w-10 h-10 rounded-full bg-unilab-offWhite flex items-center justify-center text-unilab-red group-hover:bg-unilab-red group-hover:text-unilab-white transition-colors">
-                <Dna className="w-5 h-5" />
-              </div>
-              <div>
-                <h2 className="text-lg sm:text-xl font-bold text-unilab-gray group-hover:text-unilab-red transition-colors">Anatomia Patológica</h2>
-                <p className="text-xs text-unilab-gray/60">Alterações morfológicas e diagnósticos definitivos</p>
-              </div>
-            </div>
-
-            <div className="p-4 sm:p-6 overflow-y-auto flex-1 bg-unilab-white/50">
-              <div className="mb-6">
-                <h3 className="font-bold text-unilab-red mb-2 border-b border-unilab-red/10 pb-1 text-sm uppercase tracking-wider">Citopatologia</h3>
-                <ul className="space-y-2 text-sm text-unilab-gray/80">
-                  <li><strong className="text-unilab-gray">CAAF:</strong> Citologia por Agulha Fina para coleta de nódulos ou massas.</li>
-                  <li><strong className="text-unilab-gray">Citologia de Impressão:</strong> Feita em lesões ulceradas ou órgãos durante cirurgias.</li>
-                  <li><strong className="text-unilab-gray">Citologia Otológica e Vaginal:</strong> Para diagnóstico de otites ou fases do ciclo estral.</li>
-                  <li><strong className="text-unilab-gray">Mielograma:</strong> Análise de medula óssea para avaliar células sanguíneas.</li>
-                </ul>
-              </div>
-
-              <div className="mb-6">
-                <h3 className="font-bold text-unilab-red mb-2 border-b border-unilab-red/10 pb-1 text-sm uppercase tracking-wider">Histopatologia</h3>
-                <ul className="space-y-2 text-sm text-unilab-gray/80">
-                  <li><strong className="text-unilab-gray">Biópsia Incisional ou Excisional:</strong> Análise de fragmentos ou peças cirúrgicas para determinar malignidade.</li>
-                  <li><strong className="text-unilab-gray">Colorações Especiais:</strong> PAS ou Ziehl-Neelsen para identificar fungos ou bactérias específicas.</li>
-                </ul>
-              </div>
-
-              <div className="mb-6">
-                <h3 className="font-bold text-unilab-red mb-2 border-b border-unilab-red/10 pb-1 text-sm uppercase tracking-wider">Imuno-histoquímica</h3>
-                <p className="text-sm text-unilab-gray/80 leading-relaxed">
-                  Exame avançado que utiliza anticorpos para identificar o tipo exato de célula cancerígena, essencial para oncologia veterinária e direcionamento terapêutico preciso.
-                </p>
-              </div>
-
-              <div className="mb-2">
-                <h3 className="font-bold text-unilab-red mb-2 border-b border-unilab-red/10 pb-1 text-sm uppercase tracking-wider">Necropsia</h3>
-                <p className="text-sm text-unilab-gray/80 leading-relaxed">
-                  Exame macroscópico sistemático para determinar a causa mortis e documentar lesões sistêmicas abrangentes.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
+                {/* Conteúdo Expansível */}
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      <div className="px-5 pb-5 pt-1 sm:px-6 sm:pb-6 border-t border-unilab-gray/5">
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 pt-3">
+                          {secao.exames.map((exame, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-sm text-unilab-gray/80">
+                              <span className="text-unilab-red mt-1 text-[10px]">●</span>
+                              {exame}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
         </div>
+
       </div>
     </div>
   );

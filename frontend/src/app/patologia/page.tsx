@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { TestTube2, Droplet, FlaskConical, Stethoscope, FileText, Bug, Microscope, Scissors, Dna, Activity, Syringe, Search, ChevronDown } from "lucide-react";
+import { TestTube2, Droplet, FlaskConical, Stethoscope, Beaker, Bug, Microscope, Scissors, Dna, Atom, Syringe, Search, ChevronDown } from "lucide-react";
 
 // Definição dos Exames Categorizados
 const examesData = [
@@ -23,7 +23,7 @@ const examesData = [
   },
   {
     categoria: "Urinálise",
-    icone: FileText,
+    icone: Beaker,
     exames: ["Urinálise"]
   },
   {
@@ -48,7 +48,7 @@ const examesData = [
   },
   {
     categoria: "Hormonais",
-    icone: Activity,
+    icone: Atom,
     exames: ["Supressão à dexametasona", "Estimulação ao ACTH", "17-hidroxiprogesterona", "TSH", "T4 total", "T4 livre por diálise"]
   },
   {

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Navigation, MessageCircle, Map, Droplet } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, Map, Droplet, Clock } from "lucide-react";
 
 export default function Contato() {
   return (
@@ -116,42 +116,38 @@ export default function Contato() {
               </div>
             </div>
 
-            {/* Smart Link: WhatsApp Administrativo */}
-            <a
-              href="https://wa.me/551934061779?text=Olá,%20Unilab!%20Gostaria%20de%20mais%20informações."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-4 bg-unilab-white p-3.5 sm:p-5 rounded-2xl border border-unilab-gray/10 hover:border-[#25D366]/30 hover:shadow-lg hover:shadow-[#25D366]/5 transition-all"
-            >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#25D366]/10 flex items-center justify-center text-[#25D366] group-hover:bg-[#25D366] group-hover:text-white transition-colors flex-shrink-0">
-                <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
-              </div>
-              <div>
-                <h2 className="text-base sm:text-lg font-bold text-unilab-gray group-hover:text-[#25D366] transition-colors">WhatsApp Geral</h2>
-                <p className="text-unilab-gray/70 mt-0.5 text-sm">(19) 3406-1779</p>
-              </div>
-            </a>
+            {/* NOVO CARTÃO UNIFICADO: ATENDIMENTO COMERCIAL */}
+            <div className="bg-unilab-white p-4 sm:p-5 rounded-2xl border border-unilab-gray/10 shadow-md flex flex-col gap-3 group">
 
-            {/* Smart Link: Telefone Fixo */}
-            <a
-              href="tel:+551934061779"
-              className="group flex items-center gap-4 bg-unilab-white p-3.5 sm:p-5 rounded-2xl border border-unilab-gray/10 hover:border-unilab-red/20 hover:shadow-lg hover:shadow-unilab-red/5 transition-all"
-            >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-unilab-offWhite flex items-center justify-center text-unilab-red group-hover:bg-unilab-red group-hover:text-white transition-colors flex-shrink-0">
-                <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
+              <div className="flex items-center gap-3 mb-1">
+                <div className="w-10 h-10 rounded-full bg-unilab-offWhite flex items-center justify-center text-unilab-gray group-hover:scale-110 transition-transform">
+                  <Clock className="w-5 h-5" />
+                </div>
+                <div>
+                  <h2 className="text-base sm:text-lg font-bold text-unilab-gray uppercase tracking-tight">Atendimento Comercial</h2>
+                  <p className="text-unilab-gray/70 text-xs sm:text-sm">Seg a Sex (08h30 - 18h) | Sáb (08h30 - 13h)</p>
+                </div>
               </div>
-              <div>
-                <h2 className="text-base sm:text-lg font-bold text-unilab-gray group-hover:text-unilab-red transition-colors">Telefone Comercial</h2>
-                <p className="text-unilab-gray/70 mt-0.5 text-sm">(19) 3406-1779</p>
+
+              <div className="flex items-center justify-between bg-unilab-offWhite p-2 sm:p-2.5 rounded-xl border border-unilab-gray/10 hover:border-unilab-gray/30 transition-colors">
+                <span className="text-sm sm:text-base font-bold text-unilab-gray pl-2">(19) 3406-1779</span>
+                <div className="flex gap-2">
+                  <a href="tel:+551934061779" title="Ligar agora" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-unilab-red hover:bg-unilab-red hover:text-white transition-colors border border-unilab-gray/10 shadow-sm active:scale-95">
+                    <Phone className="w-4 h-4" />
+                  </a>
+                  <a href="https://wa.me/551934061779?text=Olá,%20Unilab!%20Gostaria%20de%20mais%20informações." target="_blank" rel="noopener noreferrer" title="Chamar no WhatsApp" className="p-2 sm:p-2.5 bg-unilab-white rounded-lg text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors border border-unilab-gray/10 shadow-sm active:scale-95">
+                    <MessageCircle className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
-            </a>
+            </div>
 
             {/* Smart Link: E-mail */}
             <a
               href="mailto:unilabvet@outlook.com"
-              className="group flex items-center gap-4 bg-unilab-white p-3.5 sm:p-5 rounded-2xl border border-unilab-gray/10 hover:border-unilab-red/20 hover:shadow-lg hover:shadow-unilab-red/5 transition-all"
+              className="group flex items-center gap-4 bg-unilab-white p-3.5 sm:p-5 rounded-2xl border border-unilab-gray/10 hover:border-unilab-red/20 hover:shadow-lg transition-all"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-unilab-offWhite flex items-center justify-center text-unilab-red group-hover:bg-unilab-red group-hover:text-white transition-colors flex-shrink-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-unilab-offWhite flex items-center justify-center text-unilab-gray group-hover:bg-unilab-red group-hover:text-white transition-colors flex-shrink-0">
                 <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>

@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, Lock, AlertCircle, Loader2, Building2 } from "lucide-react";
+import { ArrowLeft, Lock, AlertCircle, Loader2, Building2, FileText } from "lucide-react";
 
 export default function LoginClinica() {
-  const [codigo, setCodigo] = useState("");
+  const [protocolo, setProtocolo] = useState("");
   const [senha, setSenha] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -69,28 +69,28 @@ export default function LoginClinica() {
 
           <form onSubmit={handleLogin} className="space-y-5">
 
-            {/* Input CNPJ / Código */}
+            {/* Input Protocolo (PADRONIZADO) */}
             <div>
-              <label htmlFor="codigo" className="block text-sm font-semibold text-unilab-gray mb-1.5">
-                CNPJ ou Código da Clínica
+              <label htmlFor="protocolo" className="block text-sm font-semibold text-unilab-gray mb-1.5">
+                Número do Protocolo
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                  <Building2 className="h-5 w-5 text-unilab-gray/40" />
+                  <FileText className="h-5 w-5 text-unilab-gray/40" />
                 </div>
                 <input
                   type="text"
-                  id="codigo"
-                  value={codigo}
-                  onChange={(e) => setCodigo(e.target.value)}
+                  id="protocolo"
+                  value={protocolo}
+                  onChange={(e) => setProtocolo(e.target.value)}
                   className="block w-full pl-10 pr-4 py-3 bg-unilab-offWhite border border-unilab-gray/20 rounded-xl text-sm text-unilab-gray focus:ring-2 focus:ring-unilab-red/20 focus:border-unilab-red transition-all outline-none"
-                  placeholder="00.000.000/0000-00 ou Código"
+                  placeholder="Ex: 123456789"
                   required
                 />
               </div>
             </div>
 
-            {/* Input Senha */}
+            {/* Input Senha (PADRONIZADO) */}
             <div>
               <label htmlFor="senha" className="block text-sm font-semibold text-unilab-gray mb-1.5">
                 Senha de Acesso
@@ -116,7 +116,7 @@ export default function LoginClinica() {
               </div>
             </div>
 
-            {/* Mensagem de Erro */}
+            {/* Mensagem de Erro Ajustada */}
             {error && (
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
@@ -124,7 +124,7 @@ export default function LoginClinica() {
                 className="flex items-start gap-2 p-3 bg-red-50 border border-red-100 rounded-lg text-red-600 text-sm"
               >
                 <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                <p><strong>Acesso negado.</strong> Cadastro não localizado ou credenciais incorretas.</p>
+                <p><strong>Acesso negado.</strong> Protocolo ou senha inválidos.</p>
               </motion.div>
             )}
 

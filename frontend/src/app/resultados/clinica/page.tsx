@@ -56,7 +56,8 @@ export default function LoginClinica() {
           className="bg-unilab-white p-8 sm:p-10 rounded-3xl border border-unilab-gray/10 shadow-xl"
         >
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-unilab-gray/5 text-unilab-gray mb-4">
+            {/* Ícone corrigido para o vermelho da Unilab */}
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-unilab-red/10 text-unilab-red mb-4">
                <Building2 className="w-6 h-6" />
             </div>
             <h1 className="text-2xl font-bold text-unilab-gray mb-2">
@@ -69,7 +70,7 @@ export default function LoginClinica() {
 
           <form onSubmit={handleLogin} className="space-y-5">
 
-            {/* Input Protocolo (PADRONIZADO) */}
+            {/* Input Protocolo */}
             <div>
               <label htmlFor="protocolo" className="block text-sm font-semibold text-unilab-gray mb-1.5">
                 Número do Protocolo
@@ -90,7 +91,7 @@ export default function LoginClinica() {
               </div>
             </div>
 
-            {/* Input Senha (PADRONIZADO) */}
+            {/* Input Senha */}
             <div>
               <label htmlFor="senha" className="block text-sm font-semibold text-unilab-gray mb-1.5">
                 Senha de Acesso
@@ -116,7 +117,7 @@ export default function LoginClinica() {
               </div>
             </div>
 
-            {/* Mensagem de Erro Ajustada */}
+            {/* Mensagem de Erro */}
             {error && (
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
@@ -128,11 +129,11 @@ export default function LoginClinica() {
               </motion.div>
             )}
 
-            {/* Botão de Submit */}
+            {/* Botão de Submit corrigido para o vermelho da Unilab */}
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full flex justify-center items-center py-3.5 px-4 border border-transparent rounded-xl shadow-md text-sm font-bold text-white bg-unilab-gray hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-unilab-gray transition-all active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed mt-2"
+              className="w-full flex justify-center items-center py-3.5 px-4 border border-transparent rounded-xl shadow-md text-sm font-bold text-white bg-unilab-red hover:bg-[#b31b20] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-unilab-red transition-all active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed mt-2"
             >
               {isLoading ? (
                 <>

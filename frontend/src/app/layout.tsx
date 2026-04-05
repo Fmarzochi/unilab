@@ -10,6 +10,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("http://localhost:3000"),
   title: "Unilab - Laboratório Veterinário e Banco de Sangue Animal",
   description: "Infraestrutura de ponta e corpo clínico especializado em diagnósticos precisos e banco de sangue animal em Americana/SP e região.",
   keywords: [
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Unilab - Laboratório Veterinário",
     description: "Diagnóstico exato e suporte vital que o seu paciente merece. Atendimento especializado em Americana e região.",
-    url: "https://www.unilab.com.br", // Atualize para o domínio real quando o site for pro ar
+    url: "/",
     siteName: "Unilab Vet",
     images: [
       {

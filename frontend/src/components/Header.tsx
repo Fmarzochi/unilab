@@ -50,10 +50,11 @@ export default function Header() {
               </Link>
 
               <div className="absolute left-0 right-0 flex flex-col justify-center items-center pointer-events-none z-10 ml-16 sm:ml-24">
-                <span className="text-2xl sm:text-3xl font-bold text-black leading-tight text-center">
+                {/* AJUSTE FINO: text-[27px] é o meio-termo exato entre o pequeno e o gigante */}
+                <span className="text-[27px] sm:text-[32px] font-bold text-black leading-tight text-center">
                   Laboratório
                 </span>
-                <span className="text-2xl sm:text-3xl font-semibold text-unilab-red leading-tight text-center">
+                <span className="text-[27px] sm:text-[32px] font-semibold text-unilab-red leading-tight text-center">
                   Veterinário
                 </span>
               </div>

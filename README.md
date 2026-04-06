@@ -9,12 +9,21 @@
 
 # Unilab — Laboratório Veterinário
 
+<<<<<<< HEAD
 Sistema web completo para laboratório veterinário  
 Arquitetura 100% serverless  
 Foco em performance, UX e operação real  
 
 🚀 Projeto construído para resolver fluxo real de atendimento em laboratório veterinário  
 🔗 Deploy: https://unilab-nu.vercel.app  
+=======
+Sistema web completo para laboratório veterinário
+Arquitetura 100% serverless
+Foco em performance, UX e operação real
+
+🚀 Projeto construído para resolver fluxo real de atendimento em laboratório veterinário
+🔗 Deploy: https://unilab-nu.vercel.app
+>>>>>>> dd651b0 (Atualizando o Readme)
 
 ---
 
@@ -170,4 +179,8 @@ Tempo de carregamento
 Autor
 
 Desenvolvido por Felipe Marzochi
+<<<<<<< HEAD
 🔗 LinkedIn: https://www.linkedin.com/in/felipe-marzochi
+=======
+🔗 LinkedIn: https://www.linkedin.com/in/felipe-marzochi
+>>>>>>> dd651b0 (Atualizando o Readme)

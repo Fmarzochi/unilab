@@ -17,11 +17,16 @@ dist/
 # AMBIENTE E SEGURANÇA (Credenciais)
 # =========================
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
 *.pem
+*.key
+*.crt
+*.pfx
+*.p12
+*.der
+*.csr
+secrets.json
+credentials.json
 
 # =========================
 # LOGS (Erros e Debug)
@@ -31,11 +36,11 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-logs
+logs/
 *.log
 
 # =========================
-# SISTEMA OPERACIONAL (Arquivos Ocultos)
+# SISTEMA OPERACIONAL
 # =========================
 .DS_Store
 .DS_Store?
@@ -52,7 +57,7 @@ Desktop.ini
 *.tsbuildinfo
 
 # =========================
-# IDEs E EDITORES DE CÓDIGO
+# IDEs E EDITORES
 # =========================
 .vscode/
 .idea/
@@ -61,6 +66,8 @@ Desktop.ini
 *.njsproj
 *.sln
 *.sw?
+*.swp
+*.swo
 
 # =========================
 # TESTES E COBERTURA
@@ -77,25 +84,141 @@ cypress/screenshots/
 .vercel/
 .netlify/
 .serverless/
+.aws/
+.terraform/
+*.tfstate
+*.tfstate.*
 
 # =========================
-# LINTERS & CACHES DE BUILD
+# LINTERS & CACHE
 # =========================
 .eslintcache
 .prettiercache
 .stylelintcache
 .parcel-cache/
 .cache/
+.tmp/
+.temp/
 
 # =========================
-# BANCO DE DADOS LOCAIS (Backend Node)
+# BANCO DE DADOS
 # =========================
 *.sqlite
 *.sqlite3
 *.db
 *.db-journal
+*.mdb
+*.accdb
 prisma/dev.db
 pgdata/
+
+# =========================
+# PYTHON
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+pip-wheel-metadata/
+.ipynb_checkpoints/
+
+# =========================
+# JAVA / KOTLIN
+# =========================
+*.class
+*.jar
+*.war
+*.ear
+.gradle/
+build/
+out/
+
+# =========================
+# .NET / C#
+# =========================
+bin/
+obj/
+*.user
+*.aps
+*.pch
+*.vs/
+*.psess
+*.vsp
+*.vspx
+
+# =========================
+# GO
+# =========================
+bin/
+pkg/
+*.test
+
+# =========================
+# RUST
+# =========================
+target/
+Cargo.lock
+
+# =========================
+# PHP / COMPOSER
+# =========================
+vendor/
+composer.lock
+
+# =========================
+# RUBY
+# =========================
+.bundle/
+vendor/bundle/
+log/
+tmp/
+
+# =========================
+# C / C++ / BUILD
+# =========================
+*.o
+*.obj
+*.so
+*.dll
+*.exe
+*.out
+*.a
+*.lib
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake-build-*/
+
+# =========================
+# SWIFT / iOS
+# =========================
+DerivedData/
+*.xcworkspace
+*.xcuserdata
+*.xcuserstate
+
+# =========================
+# ANDROID
+# =========================
+.gradle/
+local.properties
+*.apk
+*.aab
+captures/
+
+# =========================
+# DOCKER
+# =========================
+Dockerfile*
+.dockerignore
+*.tar
 
 # =========================
 # IA, ASSISTENTES E BOTS
@@ -106,3 +229,31 @@ pgdata/
 .copilot/
 .claude/
 .ai/
+.openai/
+.anthropic/
+.gemini/
+.llm/
+.prompts/
+.cache/ai/
+embeddings/
+vector_store/
+
+# =========================
+# ARQUIVOS TEMPORÁRIOS GERAIS
+# =========================
+*.tmp
+*.temp
+*.bak
+*.swp
+*.lock
+*.orig
+
+# =========================
+# MÍDIA PESADA (OPCIONAL)
+# =========================
+# *.mp4
+# *.mov
+# *.avi
+# *.zip
+# *.rar
+# *.7z

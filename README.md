@@ -18,18 +18,6 @@ Foco em performance, UX e operação real
 
 ---
 
-## Preview
-
-<p align="center">
-  <img src="public/images/preview-1.png" width="800" />
-</p>
-
-<p align="center">
-  <img src="public/images/preview-2.png" width="800" />
-</p>
-
----
-
 ## Sobre o Projeto
 
 Plataforma institucional e operacional web desenvolvida para um laboratório de diagnóstico e banco de sangue veterinário. O sistema digitaliza o fluxo de atendimento da recepção, permitindo:
@@ -67,6 +55,8 @@ frontend/
 │   │   └── trabalhe-conosco/
 │   └── components/
 ├── tailwind.config.ts
+
+
 Stack Utilizada
 Biblioteca	Uso
 Next.js	Framework de renderização (App Router) e otimização
@@ -105,6 +95,8 @@ Smart Links (ligação, WhatsApp e e-mail)
 Card de emergência com destaque
 Mapa estático otimizado com redirecionamento para GPS
 Sem uso de iFrame pesado
+
+
 🚀 Diferenciais Técnicos
 Arquitetura zero backend (serverless real)
 Integração com WhatsApp sem API paga
@@ -116,6 +108,8 @@ Inconsistências e Pendências Conhecidas
 Problema	Módulo	Impacto
 Dados institucionais	Global	Aguardando conteúdo final
 Ativação do FormSubmit	Trabalhe Conosco	Confirmação por e-mail
+
+
 Como Rodar
 Pré-requisitos
 

@@ -9,36 +9,55 @@
 
 # Unilab — Laboratório Veterinário
 
+Sistema web completo para laboratório veterinário  
+Arquitetura 100% serverless  
+Foco em performance, UX e operação real  
+
+🚀 Projeto construído para resolver fluxo real de atendimento em laboratório veterinário  
+🔗 Deploy: https://unilab-nu.vercel.app  
+
+---
+
+## Preview
+
+<p align="center">
+  <img src="public/images/preview-1.png" width="800" />
+</p>
+
+<p align="center">
+  <img src="public/images/preview-2.png" width="800" />
+</p>
+
 ---
 
 ## Sobre o Projeto
 
 Plataforma institucional e operacional web desenvolvida para um laboratório de diagnóstico e banco de sangue veterinário. O sistema digitaliza o fluxo de atendimento da recepção, permitindo:
 
-- Agendamento de exames via WhatsApp com dados pré-formatados
-- Triagem de doadores de sangue
-- Captação de talentos (envio de currículos com anexo)
+- Agendamento de exames via WhatsApp com dados pré-formatados  
+- Triagem de doadores de sangue  
+- Captação de talentos (envio de currículos com anexo)  
 
 A aplicação foi construída sob uma arquitetura **100% serverless** (sem backend proprietário), com foco em:
 
-- Alta performance de carregamento
-- Responsividade mobile-first real
-- UI/UX com percepção premium
+- Alta performance de carregamento  
+- Responsividade mobile-first real  
+- UI/UX com percepção premium  
 
 ---
 
 ## Arquitetura
 
-O projeto utiliza uma arquitetura puramente **Frontend**, consumindo serviços de terceiros (Third-Party APIs) para mensageria e envio de dados, eliminando completamente a necessidade de um servidor backend dedicado.
+O projeto utiliza uma arquitetura puramente **Frontend**, consumindo serviços de terceiros (Third-Party APIs), eliminando completamente a necessidade de backend dedicado.
 
 ### Estrutura de Diretórios
 
 ```text
 frontend/
 ├── public/
-│   └── images/         # Arquivos estáticos otimizados (logo.svg, mapa-unilab.jpg, etc)
+│   └── images/
 ├── src/
-│   ├── app/            # Rotas da aplicação (Next.js App Router)
+│   ├── app/
 │   │   ├── banco-de-sangue/
 │   │   ├── contato/
 │   │   ├── exames/
@@ -46,9 +65,8 @@ frontend/
 │   │   ├── patologia/
 │   │   ├── quem-somos/
 │   │   └── trabalhe-conosco/
-│   └── components/     # Componentes de UI reutilizáveis
-├── tailwind.config.ts  # Design System (cores e tokens)
-
+│   └── components/
+├── tailwind.config.ts
 Stack Utilizada
 Biblioteca	Uso
 Next.js	Framework de renderização (App Router) e otimização
@@ -58,42 +76,35 @@ Tailwind CSS	Estilização utilitária e responsividade
 Framer Motion	Animações e transições
 Lucide React	Ícones SVG otimizados
 FormSubmit	Infraestrutura serverless para formulários
-
 Funcionalidades Implementadas
 Navegação Inteligente (Header)
 Layout adaptativo: Desktop completo + Bottom Sheet no mobile
 Efeito Glassmorphism ao rolar
-Micro-interações de UX (controle de estado e visibilidade)
+Micro-interações de UX
 Renderização condicional do logotipo
-
 Diagnóstico por Imagem (/imagem)
 Grid responsivo de alta performance
 Serviços: Radiografia, Ultrassom, Ecocardiograma, ECG e Pressão arterial
 Animações sequenciais com Framer Motion
-
 Guia de Exames (/exames)
 Sistema de Accordion interativo
 Organização de +50 exames laboratoriais
 Estrutura pensada para evitar scroll excessivo
-
 Banco de Sangue (/banco-de-sangue)
 Página otimizada para conversão
 Formulário com pílulas de seleção (UX mobile)
 Integração direta com WhatsApp (wa.me)
 Serialização automática de dados
-
 Trabalhe Conosco (/trabalhe-conosco)
 Upload de arquivos sem backend
 Feedback visual de envio
 Integração AJAX com FormSubmit
 Envio direto de currículo (PDF)
-
 Contato (/contato)
 Smart Links (ligação, WhatsApp e e-mail)
 Card de emergência com destaque
 Mapa estático otimizado com redirecionamento para GPS
 Sem uso de iFrame pesado
-
 🚀 Diferenciais Técnicos
 Arquitetura zero backend (serverless real)
 Integração com WhatsApp sem API paga
@@ -101,29 +112,26 @@ Upload de arquivos sem infraestrutura própria
 UX mobile-first de verdade
 Prevenção de scroll hijacking
 Estrutura escalável sem banco de dados
-
 Inconsistências e Pendências Conhecidas
-#	Problema	Módulo	Impacto
-1	Dados institucionais	Global	Aguardando conteúdo final
-2	Ativação do FormSubmit	Trabalhe Conosco	Primeiro envio exige confirmação por e-mail
-
+Problema	Módulo	Impacto
+Dados institucionais	Global	Aguardando conteúdo final
+Ativação do FormSubmit	Trabalhe Conosco	Confirmação por e-mail
 Como Rodar
 Pré-requisitos
+
 Node.js 18 ou superior
-Inicialização
+
+Instalação
 cd frontend
 npm install
 npm run dev
-
-A aplicação estará disponível em:
+Acesse
 
 http://localhost:3000
-
 
 🌐 Deploy
 
 https://unilab-nu.vercel.app
-
 
 Estrutura de Rotas
 Rota	Descrição
@@ -135,25 +143,29 @@ Rota	Descrição
 /exames	Catálogo de exames
 /trabalhe-conosco	Currículos
 /contato	Contato e localização
-
 Decisões Técnicas
-
 Arquitetura Serverless (FormSubmit)
+
 Eliminação de backend próprio, reduzindo custo e complexidade.
 
 Performance Mobile
-Mapa estático substitui Google Maps embed para evitar travamento de scroll.
+
+Mapa estático substitui Google Maps embed para evitar travamento.
 
 Escalabilidade (Accordion)
-Permite crescimento do catálogo sem comprometer UX.
+
+Permite crescimento sem comprometer UX.
 
 Next.js Image
+
 Otimização automática e prevenção de CLS.
 
 Design System com Tailwind
-Padronização rígida de cores e estilos.
+
+Padronização rígida de estilos.
 
 Framer Motion
+
 Animações leves com foco em experiência.
 
 📊 Métricas (futuro)
@@ -164,3 +176,4 @@ Tempo de carregamento
 Autor
 
 Desenvolvido por Felipe Marzochi
+🔗 LinkedIn: https://www.linkedin.com/in/felipe-marzochi

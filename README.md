@@ -9,21 +9,12 @@
 
 # Unilab — Laboratório Veterinário
 
-<<<<<<< HEAD
-Sistema web completo para laboratório veterinário  
-Arquitetura 100% serverless  
-Foco em performance, UX e operação real  
-
-🚀 Projeto construído para resolver fluxo real de atendimento em laboratório veterinário  
-🔗 Deploy: https://unilab-nu.vercel.app  
-=======
 Sistema web completo para laboratório veterinário
 Arquitetura 100% serverless
 Foco em performance, UX e operação real
 
 🚀 Projeto construído para resolver fluxo real de atendimento em laboratório veterinário
 🔗 Deploy: https://unilab-nu.vercel.app
->>>>>>> dd651b0 (Atualizando o Readme)
 
 ---
 
@@ -31,15 +22,15 @@ Foco em performance, UX e operação real
 
 Plataforma institucional e operacional web desenvolvida para um laboratório de diagnóstico e banco de sangue veterinário. O sistema digitaliza o fluxo de atendimento da recepção, permitindo:
 
-- Agendamento de exames via WhatsApp com dados pré-formatados  
-- Triagem de doadores de sangue  
-- Captação de talentos (envio de currículos com anexo)  
+- Agendamento de exames via WhatsApp com dados pré-formatados
+- Triagem de doadores de sangue
+- Captação de talentos (envio de currículos com anexo)
 
 A aplicação foi construída sob uma arquitetura **100% serverless** (sem backend proprietário), com foco em:
 
-- Alta performance de carregamento  
-- Responsividade mobile-first real  
-- UI/UX com percepção premium  
+- Alta performance de carregamento
+- Responsividade mobile-first real
+- UI/UX com percepção premium
 
 ---
 
@@ -66,7 +57,7 @@ frontend/
 ├── tailwind.config.ts
 
 
-Stack Utilizada
+## Stack Utilizada
 Biblioteca	Uso
 Next.js	Framework de renderização (App Router) e otimização
 React	Construção de interfaces
@@ -105,8 +96,9 @@ Card de emergência com destaque
 Mapa estático otimizado com redirecionamento para GPS
 Sem uso de iFrame pesado
 
+__
 
-🚀 Diferenciais Técnicos
+## 🚀 Diferenciais Técnicos
 Arquitetura zero backend (serverless real)
 Integração com WhatsApp sem API paga
 Upload de arquivos sem infraestrutura própria
@@ -118,8 +110,9 @@ Problema	Módulo	Impacto
 Dados institucionais	Global	Aguardando conteúdo final
 Ativação do FormSubmit	Trabalhe Conosco	Confirmação por e-mail
 
+__
 
-Como Rodar
+## Como Rodar
 Pré-requisitos
 
 Node.js 18 ou superior
@@ -128,15 +121,20 @@ Instalação
 cd frontend
 npm install
 npm run dev
+
+ou
+
 Acesse
 
 http://localhost:3000
+
+__
 
 🌐 Deploy
 
 https://unilab-nu.vercel.app
 
-Estrutura de Rotas
+## Estrutura de Rotas
 Rota	Descrição
 /	Landing page
 /quem-somos	Institucional
@@ -146,7 +144,8 @@ Rota	Descrição
 /exames	Catálogo de exames
 /trabalhe-conosco	Currículos
 /contato	Contato e localização
-Decisões Técnicas
+
+## Decisões Técnicas
 Arquitetura Serverless (FormSubmit)
 
 Eliminação de backend próprio, reduzindo custo e complexidade.
@@ -171,7 +170,7 @@ Framer Motion
 
 Animações leves com foco em experiência.
 
-📊 Métricas (futuro)
+## Métricas (futuro)
 Lighthouse Performance
 SEO Score
 Accessibility
@@ -179,8 +178,5 @@ Tempo de carregamento
 Autor
 
 Desenvolvido por Felipe Marzochi
-<<<<<<< HEAD
 🔗 LinkedIn: https://www.linkedin.com/in/felipe-marzochi
-=======
-🔗 LinkedIn: https://www.linkedin.com/in/felipe-marzochi
->>>>>>> dd651b0 (Atualizando o Readme)
+

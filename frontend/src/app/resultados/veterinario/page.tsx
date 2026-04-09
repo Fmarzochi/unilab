@@ -125,11 +125,11 @@ export default function LoginVeterinario() {
               </motion.div>
             )}
 
-            {/* Botão de Submit */}
+            {/* Botão de Submit - AGORA NO VERMELHO PADRÃO */}
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full flex justify-center items-center py-3.5 px-4 border border-transparent rounded-xl shadow-md text-sm font-bold text-white bg-unilab-gray hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-unilab-gray transition-all active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed mt-2"
+              className="w-full flex justify-center items-center py-3.5 px-4 border border-transparent rounded-xl shadow-md text-sm font-bold text-white bg-unilab-red hover:bg-[#b31b20] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-unilab-red transition-all active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed mt-2"
             >
               {isLoading ? (
                 <>
